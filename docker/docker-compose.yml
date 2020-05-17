@@ -1,0 +1,17 @@
+version: "3"
+services:
+  chat-keycloak:
+    image: jboss/keycloak
+    container_name: keycloak
+    volumes:
+      - ./keycloak-data/:/opt/jboss/keycloak/standalone/data/
+      - ./https:/etc/x509/https
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    ports:
+      - 8080:8080
+      - 8443:8443
+#      - 443:443
+#      - 9443:9443
+#      - 10990:10990
